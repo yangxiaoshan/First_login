@@ -34,18 +34,16 @@
   </tr>
 </table>
 
-<form action="${pageContext.request.contextPath}/pages/post/listPost.jsp" method="post">
+<form action="${pageContext.request.contextPath}/addPost.action" method="post">
 	<table width="88%" border="0" class="emp_table" style="width:80%;">
 	 <tr>
 	    <td>选择部门：</td>
-	    <td><select name="crmDepartment.depId">
+	    <td><select name="Department.deptId">
 		    <option value="">----请--选--择----</option>
-		    <option value="ee050687bd1a4455a153d7bbb7000001" selected="selected">教学部</option>
-		    <option value="ee050687bd1a4455a153d7bbb7000002">咨询部</option>
 		</select>
   </td>
 	    <td>职务：</td>
-	    <td><input type="text" name="postName" value="总监"/> </td>
+	    <td><input type="text" name="postName" value=""/> </td>
 	  </tr>
 	</table>
 </form>

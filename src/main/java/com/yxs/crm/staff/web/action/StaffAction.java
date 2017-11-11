@@ -16,6 +16,12 @@ public class StaffAction extends BaseAction<Staff,StaffService>{
             return SUCCESS;
         }
         return INPUT;
-
+    }
+    public String addStaff(){
+        Staff staff = service.addStaff(getModel());
+        if (staff!=null){
+            return SUCCESS;
+        }
+        return INPUT;
     }
 }

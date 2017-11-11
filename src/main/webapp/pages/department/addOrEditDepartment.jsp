@@ -34,11 +34,11 @@
   </tr>
 </table>
 
-<form action="${pageContext.request.contextPath}/pages/department/listDepartment.jsp" method="post">
+<form action="${pageContext.request.contextPath}/addDept.action" method="post">
 	<table width="88%" border="0" class="emp_table" style="width:80%;">
 	 <tr>
 	    <td>部门名称：</td>
-	    <td><input type="text" name="depName" value="教学部"/></td>
+	    <td><input type="text" name="deptName" value=""/></td>
 	  </tr>
 	</table>
 </form>

@@ -3,6 +3,7 @@ package com.yxs.crm.staff.web.interceptor;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.MethodFilterInterceptor;
+import com.yxs.crm.staff.domain.Department;
 import com.yxs.crm.staff.domain.Staff;
 
 /**
@@ -17,7 +18,6 @@ public class LoginInterceptor extends MethodFilterInterceptor {
         if (login == null){
             return "input";
         }
-
         return invocation.invoke();
     }
 }

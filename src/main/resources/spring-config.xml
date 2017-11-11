@@ -19,7 +19,6 @@
         <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
     </bean>
 
-
     <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
@@ -27,25 +26,33 @@
     <bean id="staffDao" class="com.yxs.crm.staff.dao.impl.StaffDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-
     <bean id="staffService" class="com.yxs.crm.staff.service.impl.StaffServiceImpl">
         <property name="staffDao" ref="staffDao"/>
     </bean>
-
-    <bean id="staffAction" class="com.yxs.crm.staff.web.action.StaffAction"
-          scope="prototype">
+    <bean id="staffAction" class="com.yxs.crm.staff.web.action.StaffAction" scope="prototype">
         <property name="service" ref="staffService"/>
     </bean>
 
-    <!--配置顾问(通知)-->
-    <!--
-        advice是什么?
-        Spring已经为我们提供了一个事务管理器,它里面封装了事务的常用方法,比如:
-        开启事务/提交事务/事务回滚,并且已经定义好了在接入点调用的某个时机调用事务的某个方法.
-        (也就是说在前置通知开启事务,正常后置通知定义提交事务,异常后置通知定义回滚事务).
-        我们需要做的就是告知Spring在哪些目标方法上添加切面,
-        advisor中定义了上述的规则,将advisor配置给切点后,Spring会自动织入切面.
-    -->
+    <bean id="deptDao" class="com.yxs.crm.department.dao.impl.DeptDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="deptService" class="com.yxs.crm.department.service.impl.DeptServiceImpl">
+        <property name="deptDao" ref="deptDao"/>
+    </bean>
+    <bean id="deptAction" class="com.yxs.crm.department.web.action.DeptAction" scope="prototype">
+        <property name="service" ref="deptService"/>
+    </bean>
+
+    <bean id="postDao" class="com.yxs.crm.post.dao.impl.PostDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="postService" class="com.yxs.crm.post.service.impl.PostServiceImpl">
+        <property name="postDao" ref="postDao"/>
+    </bean>
+    <bean id="postAction" class="com.yxs.crm.post.web.action.PostAction" scope="prototype">
+        <property name="service" ref="postService"/>
+    </bean>
+
     <tx:advice id="userAdvisor" transaction-manager="transactionManager">
     <tx:attributes>
     <tx:method name="*"/>

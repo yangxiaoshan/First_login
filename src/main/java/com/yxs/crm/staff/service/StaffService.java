@@ -8,4 +8,5 @@ import com.yxs.crm.staff.domain.Staff;
 public interface StaffService {
 
     Staff login(Staff staff);
+    Staff addStaff(Staff staff);
 }

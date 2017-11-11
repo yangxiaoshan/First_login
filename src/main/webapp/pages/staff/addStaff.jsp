@@ -34,7 +34,7 @@
   </tr>
 </table>
 
-<form action="${pageContext.request.contextPath}/pages/staff/listStaff.jsp" method="post">
+<form action="${pageContext.request.contextPath}/add.action" method="post">
 	<table width="88%" border="0" class="emp_table" style="width:80%;">
 	 <tr>
 	    <td>登录名：</td>

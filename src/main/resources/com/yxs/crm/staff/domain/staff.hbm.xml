@@ -12,5 +12,9 @@
         <property name="staffName"/>
         <property name="gender"/>
         <property name="onDutyDate"/>
+        <many-to-one name="department" class="Department" column="deptID"
+                     cascade="save-update" lazy="false"/>
+        <many-to-one name="post" class="Post" column="postID"
+                     cascade="save-update" lazy="false"/>
     </class>
 </hibernate-mapping>

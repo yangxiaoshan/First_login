@@ -52,33 +52,72 @@
     <column id="34" parent="28" name="postName">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <key id="35" parent="28" name="PRIMARY">
+    <column id="35" parent="28" name="deptID">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="36" parent="28" name="FK6avv372wmi7xpo3j8j1yf206q">
+      <columns>deptID</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="37" parent="28" name="PRIMARY">
       <columns>POST_ID</columns>
       <primary>1</primary>
     </key>
-    <column id="36" parent="29" name="STAFF_ID">
+    <foreign-key id="38" parent="28" name="FK6avv372wmi7xpo3j8j1yf206q">
+      <columns>deptID</columns>
+      <ref-key>~.T_DEPT.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="39" parent="29" name="STAFF_ID">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="37" parent="29" name="loginName">
+    <column id="40" parent="29" name="loginName">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="38" parent="29" name="loginPwd">
+    <column id="41" parent="29" name="loginPwd">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="39" parent="29" name="staffName">
+    <column id="42" parent="29" name="staffName">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="40" parent="29" name="gender">
+    <column id="43" parent="29" name="gender">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="41" parent="29" name="onDutyDate">
+    <column id="44" parent="29" name="onDutyDate">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <key id="42" parent="29" name="PRIMARY">
+    <column id="45" parent="29" name="deptID">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="46" parent="29" name="postID">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="47" parent="29" name="FKm119ksvf5h94fvl6l5uk6qydo">
+      <columns>deptID</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="48" parent="29" name="FKstdnworwsv286u5ie0ji548o0">
+      <columns>postID</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="49" parent="29" name="PRIMARY">
       <columns>STAFF_ID</columns>
       <primary>1</primary>
     </key>
+    <foreign-key id="50" parent="29" name="FKm119ksvf5h94fvl6l5uk6qydo">
+      <columns>deptID</columns>
+      <ref-key>~.T_DEPT.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="51" parent="29" name="FKstdnworwsv286u5ie0ji548o0">
+      <columns>postID</columns>
+      <ref-key>~.T_POST.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
   </database-model>
 </dataSource>

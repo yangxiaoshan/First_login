@@ -4,6 +4,7 @@ import com.yxs.crm.staff.dao.StaffDao;
 import com.yxs.crm.staff.domain.Staff;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -17,6 +18,12 @@ public class StaffDaoImpl extends HibernateDaoSupport implements StaffDao{
         if (staffs !=null && staffs.size() > 0){
             return staffs.get(0);
         }
+        return null;
+    }
+
+    @Override
+    public Staff addStaff(Staff staff) {
+        getHibernateTemplate().save(staff);
         return null;
     }
 }

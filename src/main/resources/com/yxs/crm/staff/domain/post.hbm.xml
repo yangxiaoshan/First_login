@@ -3,10 +3,15 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.yxs.crm.staff.domain">
-<class name="Post" table="T_POST">
-    <id name="postID" column="POST_ID">
-        <generator class="native"/>
-    </id>
-    <property name="postName"/>
-</class>
+    <class name="Post" table="T_POST">
+        <id name="postID" column="POST_ID">
+            <generator class="native"/>
+        </id>
+        <property name="postName"/>
+        <set name="staffs" cascade="save-update" inverse="true">
+            <key column="postID"/>
+            <one-to-many class="Staff"/>
+        </set>
+        <many-to-one name="department" class="Department" column="deptID" cascade="save-update"/>
+    </class>
 </hibernate-mapping>

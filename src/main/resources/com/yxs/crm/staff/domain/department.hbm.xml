@@ -8,5 +8,9 @@
             <generator class="native"/>
         </id>
         <property name="deptName"/>
+        <set name="posts" cascade="save-update" inverse="true">
+            <key column="deptID"/>
+            <one-to-many class="Post"/>
+        </set>
     </class>
 </hibernate-mapping>

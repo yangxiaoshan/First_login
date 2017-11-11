@@ -31,5 +31,26 @@
             <result name="success">/pages/frame.jsp</result>
             <result name="input">/pages/login.jsp</result>
         </action>
+        <action name="addStaff" class="staffAction" method="addStaff">
+            <result name="success"></result>
+            <result name="input"></result>
+        </action>
+    </package>
+    <package name="department" extends="json-default">
+        <action name="addDept" class="deptAction" method="addDept">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getDept</param>
+            </result>
+            <result name="input"></result>
+        </action>
+        <action name="getDept" class="deptAction" method="getDept">
+            <result name="success">/pages/department/listDepartment.jsp</result>
+        </action>
+    </package>
+    <package name="post" extends="json-default">
+        <action name="addPost" class="postAction" method="addPost">
+            <result name="success"></result>
+            <result name="input"></result>
+        </action>
     </package>
 </struts>

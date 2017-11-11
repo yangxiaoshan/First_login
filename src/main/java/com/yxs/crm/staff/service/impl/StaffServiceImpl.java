@@ -19,4 +19,9 @@ public class StaffServiceImpl implements StaffService {
     public Staff login(Staff staff) {
         return staffDao.login(staff);
     }
+
+    @Override
+    public Staff addStaff(Staff staff) {
+        return staffDao.addStaff(staff);
+    }
 }

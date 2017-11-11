@@ -48,7 +48,6 @@ FONT-SIZE: 12px; COLOR: #4b4b4b; LINE-HEIGHT: 18px; TEXT-DECORATION: none
 					<br/>
 					<br/>
 					<s:fielderror cssStyle="color: #F00;"/>
-					<s:fielderror name="loginError"/>
 					<br/>
 					用户名：<input type="text" name="loginName" class="msg" /><br/><br/>
 					密&nbsp;码：<input type="password" class="msg" name="loginPwd"/><br/><br/>
