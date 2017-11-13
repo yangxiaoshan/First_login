@@ -8,10 +8,10 @@
             <generator class="native"/>
         </id>
         <property name="postName"/>
-        <set name="staffs" cascade="save-update" inverse="true">
-            <key column="postID"/>
+        <set name="staffs" table="T_STAFF" cascade="save-update" inverse="true">
+            <key column="POST_ID"/>
             <one-to-many class="Staff"/>
         </set>
-        <many-to-one name="department" class="Department" column="deptID" cascade="save-update"/>
+        <many-to-one name="department" class="Department" column="DEPT_ID" lazy="false"/>
     </class>
 </hibernate-mapping>

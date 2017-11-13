@@ -8,8 +8,8 @@
             <generator class="native"/>
         </id>
         <property name="deptName"/>
-        <set name="posts" cascade="save-update" inverse="true">
-            <key column="deptID"/>
+        <set name="posts" table="T_POST" cascade="save-update" inverse="true">
+            <key column="DEPT_ID"/>
             <one-to-many class="Post"/>
         </set>
     </class>

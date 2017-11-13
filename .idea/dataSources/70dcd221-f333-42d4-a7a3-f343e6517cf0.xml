@@ -52,19 +52,19 @@
     <column id="34" parent="28" name="postName">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="35" parent="28" name="deptID">
+    <column id="35" parent="28" name="DEPT_ID">
       <data-type>int(11)|0</data-type>
     </column>
-    <index id="36" parent="28" name="FK6avv372wmi7xpo3j8j1yf206q">
-      <columns>deptID</columns>
+    <index id="36" parent="28" name="FK4r9vxlg53s8pjc1d2p6ec0kc0">
+      <columns>DEPT_ID</columns>
       <desc-columns></desc-columns>
     </index>
     <key id="37" parent="28" name="PRIMARY">
       <columns>POST_ID</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="38" parent="28" name="FK6avv372wmi7xpo3j8j1yf206q">
-      <columns>deptID</columns>
+    <foreign-key id="38" parent="28" name="FK4r9vxlg53s8pjc1d2p6ec0kc0">
+      <columns>DEPT_ID</columns>
       <ref-key>~.T_DEPT.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
@@ -89,32 +89,32 @@
     <column id="44" parent="29" name="onDutyDate">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="45" parent="29" name="deptID">
+    <column id="45" parent="29" name="DEPT_ID">
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="46" parent="29" name="postID">
+    <column id="46" parent="29" name="POST_ID">
       <data-type>int(11)|0</data-type>
     </column>
-    <index id="47" parent="29" name="FKm119ksvf5h94fvl6l5uk6qydo">
-      <columns>deptID</columns>
+    <index id="47" parent="29" name="FKfu78s3s3afea56xndig8yn9iu">
+      <columns>POST_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="48" parent="29" name="FKstdnworwsv286u5ie0ji548o0">
-      <columns>postID</columns>
+    <index id="48" parent="29" name="FKtgrh22esd25ymxspcid57npkb">
+      <columns>DEPT_ID</columns>
       <desc-columns></desc-columns>
     </index>
     <key id="49" parent="29" name="PRIMARY">
       <columns>STAFF_ID</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="50" parent="29" name="FKm119ksvf5h94fvl6l5uk6qydo">
-      <columns>deptID</columns>
+    <foreign-key id="50" parent="29" name="FKtgrh22esd25ymxspcid57npkb">
+      <columns>DEPT_ID</columns>
       <ref-key>~.T_DEPT.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="51" parent="29" name="FKstdnworwsv286u5ie0ji548o0">
-      <columns>postID</columns>
+    <foreign-key id="51" parent="29" name="FKfu78s3s3afea56xndig8yn9iu">
+      <columns>POST_ID</columns>
       <ref-key>~.T_POST.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>

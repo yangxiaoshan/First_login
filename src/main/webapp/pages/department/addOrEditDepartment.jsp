@@ -34,11 +34,12 @@
   </tr>
 </table>
 
-<form action="${pageContext.request.contextPath}/addDept.action" method="post">
+<form action="addDept.action" method="post">
 	<table width="88%" border="0" class="emp_table" style="width:80%;">
 	 <tr>
 	    <td>部门名称：</td>
 	    <td><input type="text" name="deptName" value=""/></td>
+	    <td><input type="hidden" name="deptID" value="${deptID}"/></td>
 	  </tr>
 	</table>
 </form>

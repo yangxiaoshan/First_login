@@ -13,7 +13,11 @@ public class DeptDaoImpl extends HibernateDaoSupport implements DeptDao{
 
     @Override
     public Department addDept(Department department) {
-        getHibernateTemplate().save(department);
+        if (department != null && department.getDeptID() == 0){
+            getHibernateTemplate().save(department);
+        }else {
+            getHibernateTemplate().saveOrUpdate(department);
+        }
         return department;
     }
 
@@ -22,4 +26,5 @@ public class DeptDaoImpl extends HibernateDaoSupport implements DeptDao{
         String sql = "from Department T_DEPT";
         return (List<Department>) getHibernateTemplate().find(sql);
     }
+
 }
