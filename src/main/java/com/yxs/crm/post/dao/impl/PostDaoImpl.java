@@ -13,7 +13,11 @@ import java.util.List;
 public class PostDaoImpl extends HibernateDaoSupport implements PostDao {
     @Override
     public Post addPost(Post post) {
-        getHibernateTemplate().save(post);
+        if (post!=null&&post.getPostID()==0){
+            getHibernateTemplate().save(post);
+        }else {
+            getHibernateTemplate().saveOrUpdate(post);
+        }
         return post;
     }
 

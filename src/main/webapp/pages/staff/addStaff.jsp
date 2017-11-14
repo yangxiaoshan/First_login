@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -34,13 +35,13 @@
   </tr>
 </table>
 
-<form action="${pageContext.request.contextPath}/add.action" method="post">
+<form action="${pageContext.request.contextPath}/addStaff.action" method="post">
 	<table width="88%" border="0" class="emp_table" style="width:80%;">
 	 <tr>
 	    <td>登录名：</td>
 	    <td><input type="text" name="loginName" value="" /> </td>
 	    <td>密码：</td>
-	    <td><input type="password" name="loginPwd" /> </td>
+	    <td><input type="password" name="loginPwd" value=""/> </td>
 	  </tr>
 	 <tr>
 	    <td>姓名：</td>
@@ -53,17 +54,19 @@
 	 <tr>
 	    <td width="10%">所属部门：</td>
 	    <td width="20%">
-	    	<select name="crmPost.crmDepartment.depId"onchange="changePost(this)">
+
+	    	<select name="department.deptID"onchange="changePost(this)">
 			    <option value="">----请--选--择----</option>
-			    <option value="ee050687bd1a4455a153d7bbb7000001">教学部</option>
-			    <option value="ee050687bd1a4455a153d7bbb7000002">咨询部</option>
+				<s:iterator value="departments" var="dep">
+			    <option value="${dep.deptID}">${dep.deptName}</option>
+				</s:iterator>
 			</select>
 
 	    </td>
 	    <td width="8%">职务：</td>
 	    <td width="62%">
-	    	<select id="postSelectId" name="crmPost.postId">
-	    		<option>----请--选--择----</option>
+	    	<select id="postSelectId" name="Post.postId">
+	    		<option value="-1">----请--选--择----</option>
 	    	</select>
 	    </td>
 	  </tr>

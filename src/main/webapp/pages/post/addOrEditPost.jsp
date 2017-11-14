@@ -53,15 +53,23 @@
         <tr>
             <td>选择部门：</td>
             <td>
-                <select name="deptID">
+                <select name="department.deptID">
                     <option value="-1">----请--选--择----</option>
                     <s:iterator value="departments" var="dept">
-                        <option value="${dept.deptID}">${dept.deptName}</option>
+
+                        <s:if test="#dept.deptID==model.department.deptID">
+                            <option value="${dept.deptID}" selected="selected">${dept.deptName}</option>
+                        </s:if>
+                        <s:else>
+                            <option value="${dept.deptID}">${dept.deptName}</option>
+                        </s:else>
+
                     </s:iterator>
                 </select>
             </td>
             <td>职务：</td>
             <td><input type="text" name="postName"/></td>
+            <input type="hidden" name="postID" value="${model.postID}">
         </tr>
     </table>
 </form>

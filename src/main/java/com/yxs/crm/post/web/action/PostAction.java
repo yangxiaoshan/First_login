@@ -12,14 +12,13 @@ import java.util.List;
 public class PostAction extends BaseAction<Post, PostService> {
     private List<Post> posts;
     private List<Department> departments;
-    private int deptID;
 
     public String addPost() {
 
-        Department d = new Department();
-        d.setDeptID(deptID);
-
-        getModel().setDepartment(d);
+//        Department d = new Department();
+//        d.setDeptID(deptID);
+//
+//        getModel().setDepartment(d);
 
         Post post = service.addPost(getModel());
         if (post != null) {
@@ -54,13 +53,7 @@ public class PostAction extends BaseAction<Post, PostService> {
         this.departments = departments;
     }
 
-    public int getDeptID() {
-        return deptID;
-    }
 
-    public void setDeptID(int deptID) {
-        this.deptID = deptID;
-    }
 }
 
 

@@ -1,6 +1,7 @@
 package com.yxs.crm.staff.dao.impl;
 
 import com.yxs.crm.staff.dao.StaffDao;
+import com.yxs.crm.staff.domain.Department;
 import com.yxs.crm.staff.domain.Staff;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
@@ -23,7 +24,21 @@ public class StaffDaoImpl extends HibernateDaoSupport implements StaffDao{
 
     @Override
     public Staff addStaff(Staff staff) {
-        getHibernateTemplate().save(staff);
-        return null;
+        getHibernateTemplate().saveOrUpdate(staff);
+        return staff;
     }
+
+    @Override
+    public List<Staff> getStaff() {
+        String sql = "from Staff T_STAFF";
+        return (List<Staff>) getHibernateTemplate().find(sql);
+    }
+
+//    @Override
+//    public List<Department> getDeptList_Staff() {
+//        String sql = "from Department T_DEPT";
+//        return (List<Department>) getHibernateTemplate().find(sql);
+//    }
+
+
 }

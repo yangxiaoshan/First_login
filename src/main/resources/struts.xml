@@ -13,7 +13,7 @@
         <interceptors>
 
             <interceptor name="loginInterceptor" class="com.yxs.crm.staff.web.interceptor.LoginInterceptor">
-                <param name="excludeMethods">login</param>
+                <param name="excludeMethods">login,getStaff,addStaff</param>
             </interceptor>
 
             <interceptor-stack name="crmInterceptorStack">
@@ -28,16 +28,8 @@
     </package>
 
 
-    <package name="staff" extends="base">
-        <action name="login" class="staffAction" method="login">
-            <result name="success">/pages/frame.jsp</result>
-            <result name="input">/pages/login.jsp</result>
-        </action>
-        <action name="addStaff" class="staffAction" method="addStaff">
-            <result name="success"></result>
-            <result name="input"></result>
-        </action>
-    </package>
+
+
     <package name="department" extends="json-default">
         <action name="addDept" class="deptAction" method="addDept">
             <result name="success" type="redirectAction">
@@ -45,15 +37,15 @@
             </result>
             <result name="input"></result>
         </action>
+
         <action name="getDept" class="deptAction" method="getDept">
             <result name="success">/pages/department/listDepartment.jsp</result>
         </action>
+
         <action name="pass" class="deptAction">
             <result name="success">/pages/department/addOrEditDepartment.jsp</result>
         </action>
     </package>
-
-
 
 
     <package name="post" extends="json-default">
@@ -68,8 +60,32 @@
             <result name="success">/pages/post/listPost.jsp</result>
             <result name="input"></result>
         </action>
+
         <action name="getDeptList" class="postAction" method="getDeptList">
             <result name="success">/pages/post/addOrEditPost.jsp</result>
         </action>
+    </package>
+
+
+
+    <package name="staff" extends="base">
+        <action name="login" class="staffAction" method="login">
+            <result name="success">/pages/frame.jsp</result>
+            <result name="input">/pages/login.jsp</result>
+        </action>
+        <action name="getStaff" class="staffAction" method="getStaff">
+            <result name="success">/pages/staff/listStaff.jsp</result>
+            <result name="input">/pages/login.jsp</result>
+        </action>
+        <action name="addStaff" class="staffAction" method="addStaff">
+            <result name="success" type="redirectAction">getStaff</result>
+            <result name="input"></result>
+        </action>
+    </package>
+    <package name="getDeptList_Staff" extends="json-default">
+        <action name="getDeptList_Staff" class="deptAction" method="getDept">
+            <result name="success">/pages/staff/addStaff.jsp</result>
+        </action>
+
     </package>
 </struts>

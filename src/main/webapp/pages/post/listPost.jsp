@@ -51,7 +51,7 @@
 	    <td align="center">${p.department.deptName}</td>
         <td align="center">${p.postName}</td>
 	  	<td width="7%" align="center">
-	  		<a href="">
+	  		<a href="getDeptList.action?department.deptID=${p.department.deptID}&postID=${p.postID}">
                 <img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img" /></a>
 	  	</td>
 	  </tr>

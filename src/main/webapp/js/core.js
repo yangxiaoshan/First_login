@@ -7,10 +7,10 @@
  * 	2.js文件中不能使用el函数
  */
 var tempPostId = null;
-function changePost(departmentObj,postId){
+function changePost(department,postSelectId){
 	//1 选择的部门id
-	var depId = departmentObj.value;
-	tempPostId = postId;
+	var depId = department.value;
+	tempPostId = postSelectId;
 	
 	//2 发送ajax 通过部门id 查询对应职务
 	var url = "${pageContext.request.contextPath}/post/postAction_ajaxGetPostion?crmDepartment.depId=" + depId;

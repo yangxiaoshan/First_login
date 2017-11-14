@@ -1,8 +1,11 @@
 package com.yxs.crm.staff.service.impl;
 
 import com.yxs.crm.staff.dao.StaffDao;
+import com.yxs.crm.staff.domain.Department;
 import com.yxs.crm.staff.domain.Staff;
 import com.yxs.crm.staff.service.StaffService;
+
+import java.util.List;
 
 /**
  * Created by dllo on 17/11/10.
@@ -10,10 +13,6 @@ import com.yxs.crm.staff.service.StaffService;
 public class StaffServiceImpl implements StaffService {
 
     private StaffDao staffDao;
-
-    public void setStaffDao(StaffDao staffDao) {
-        this.staffDao = staffDao;
-    }
 
     @Override
     public Staff login(Staff staff) {
@@ -23,5 +22,19 @@ public class StaffServiceImpl implements StaffService {
     @Override
     public Staff addStaff(Staff staff) {
         return staffDao.addStaff(staff);
+    }
+
+    @Override
+    public List<Staff> getStaff() {
+        return staffDao.getStaff();
+    }
+
+//    @Override
+//    public List<Department> getDeptList_Staff() {
+//        return staffDao.getDeptList_Staff();
+//    }
+
+    public void setStaffDao(StaffDao staffDao) {
+        this.staffDao = staffDao;
     }
 }

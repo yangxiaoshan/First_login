@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -25,7 +26,7 @@
     	<%--高级查询 --%>
 		<a href="javascript:void(0)" onclick="condition()"><img src="${pageContext.request.contextPath}/images/button/gaojichaxun.gif" /></a>
     	<%--员工注入 --%>
-	  	<a href="${pageContext.request.contextPath}/pages/staff/addStaff.jsp">
+	  	<a href="${pageContext.request.contextPath}/getDeptList_Staff">
 	  		<img src="${pageContext.request.contextPath}/images/button/tianjia.gif" />
 	  	</a>
       
@@ -83,31 +84,21 @@
     <td width="10%" align="center">编辑</td>
   </tr>
   
-    
+    <s:iterator value="staffs" var="sta">
 	  <tr class="tabtd1"> 
-	    <td align="center">管理员</td>
-	    <td align="center"></td>
-	    <td align="center"></td>
-	    <td align="center"></td>
-	    <td align="center"></td>
+	    <td align="center">${sta.staffName}</td>
+	    <td align="center">${sta.gender}</td>
+	    <td align="center">${sta.onDutyDate}</td>
+	    <td align="center">${sta.department.deptName}</td>
+	    <td align="center">${sta.post.postName}</td>
 	  	<td width="7%" align="center">
 	  		
-	  		<a href="${pageContext.request.contextPath}/pages/staff/editStaff.jsp"><img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img" /></a>	
+	  		<a href="${pageContext.request.contextPath}/pages/staff/editStaff.jsp">
+				<img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img" /></a>
 	  	</td>
 	  	
 	  </tr>
-    
-	  <tr class="tabtd2"> 
-	    <td align="center">赵六</td>
-	    <td align="center">男</td>
-	    <td align="center">2012-02-12</td>
-	    <td align="center">咨询部</td>
-	    <td align="center">主管</td>
-	  	<td width="7%" align="center">
-	  		
-	  		<a href="${pageContext.request.contextPath}/pages/staff/editStaff.jsp"><img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img" /></a>	
-	  	</td>
-	  </tr>
+	</s:iterator>
 </table>
 
 
