@@ -1,6 +1,7 @@
 package com.yxs.crm.department.service;
 
 import com.yxs.crm.staff.domain.Department;
+import com.yxs.crm.staff.domain.Post;
 
 import java.util.List;
 
@@ -10,4 +11,5 @@ import java.util.List;
 public interface DeptService {
     Department addDept(Department department);
     List<Department> getDept();
+    List<Post> getPostByDeptId(Department department);
 }

@@ -34,11 +34,11 @@ public class StaffDaoImpl extends HibernateDaoSupport implements StaffDao{
         return (List<Staff>) getHibernateTemplate().find(sql);
     }
 
-//    @Override
-//    public List<Department> getDeptList_Staff() {
-//        String sql = "from Department T_DEPT";
-//        return (List<Department>) getHibernateTemplate().find(sql);
-//    }
+    @Override
+    public List<Department> getDept() {
+        String sql = "from Department T_DEPT";
+        return (List<Department>) getHibernateTemplate().find(sql);
+    }
 
 
 }

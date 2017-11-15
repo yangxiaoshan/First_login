@@ -15,6 +15,10 @@ public class Department {
     public Department() {
     }
 
+    public Department(int deptID) {
+        this.deptID = deptID;
+    }
+
     public Department(String deptName) {
         this.deptName = deptName;
     }
@@ -63,4 +67,5 @@ public class Department {
     public void setStaffs(Set<Staff> staffs) {
         this.staffs = staffs;
     }
+
 }

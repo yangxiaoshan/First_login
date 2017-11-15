@@ -29,10 +29,11 @@ public class StaffServiceImpl implements StaffService {
         return staffDao.getStaff();
     }
 
-//    @Override
-//    public List<Department> getDeptList_Staff() {
-//        return staffDao.getDeptList_Staff();
-//    }
+    @Override
+    public List<Department> getDept() {
+        return staffDao.getDept();
+    }
+
 
     public void setStaffDao(StaffDao staffDao) {
         this.staffDao = staffDao;

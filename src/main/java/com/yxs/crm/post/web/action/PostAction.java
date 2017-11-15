@@ -15,10 +15,6 @@ public class PostAction extends BaseAction<Post, PostService> {
 
     public String addPost() {
 
-//        Department d = new Department();
-//        d.setDeptID(deptID);
-//
-//        getModel().setDepartment(d);
 
         Post post = service.addPost(getModel());
         if (post != null) {
@@ -36,6 +32,7 @@ public class PostAction extends BaseAction<Post, PostService> {
         departments=service.getDeptList();
         return SUCCESS;
     }
+
 
     public List<Post> getPosts() {
         return posts;

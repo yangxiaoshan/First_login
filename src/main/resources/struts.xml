@@ -64,6 +64,13 @@
         <action name="getDeptList" class="postAction" method="getDeptList">
             <result name="success">/pages/post/addOrEditPost.jsp</result>
         </action>
+
+        <action name="getPostByDeptId" class="deptAction" method="getPostByDeptId">
+            <result name="success" type="json">
+                <param name="root">postList</param>
+                <param name="includeProperties">\[\d\]\.postID,\[\d\]\.postName</param>
+            </result>
+        </action>
     </package>
 
 
@@ -81,11 +88,17 @@
             <result name="success" type="redirectAction">getStaff</result>
             <result name="input"></result>
         </action>
+
     </package>
     <package name="getDeptList_Staff" extends="json-default">
         <action name="getDeptList_Staff" class="deptAction" method="getDept">
             <result name="success">/pages/staff/addStaff.jsp</result>
+            <result name="input"></result>
         </action>
+        <action name="passStaff" class="staffAction" method="getDept">
+            <result name="success">/pages/staff/editStaff.jsp</result>
 
+        </action>
     </package>
+
 </struts>

@@ -3,6 +3,7 @@ package com.yxs.crm.department.service.impl;
 import com.yxs.crm.department.dao.DeptDao;
 import com.yxs.crm.department.service.DeptService;
 import com.yxs.crm.staff.domain.Department;
+import com.yxs.crm.staff.domain.Post;
 
 import java.util.List;
 
@@ -24,5 +25,10 @@ public class DeptServiceImpl implements DeptService {
     @Override
     public List<Department> getDept() {
         return deptDao.getDept();
+    }
+
+    @Override
+    public List<Post> getPostByDeptId(Department department) {
+        return deptDao.getPostByDeptId(department);
     }
 }

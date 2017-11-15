@@ -14,6 +14,5 @@ public interface StaffDao {
     Staff addStaff(Staff staff);
 
     List<Staff> getStaff();
-
-//    List<Department> getDeptList_Staff();
+    List<Department> getDept();
 }

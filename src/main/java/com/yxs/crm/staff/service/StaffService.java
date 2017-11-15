@@ -13,5 +13,5 @@ public interface StaffService {
     Staff login(Staff staff);
     Staff addStaff(Staff staff);
     List<Staff> getStaff();
-//    List<Department> getDeptList_Staff();
+    List<Department> getDept();
 }
