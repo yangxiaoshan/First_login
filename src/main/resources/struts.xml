@@ -86,18 +86,28 @@
         </action>
         <action name="addStaff" class="staffAction" method="addStaff">
             <result name="success" type="redirectAction">getStaff</result>
-            <result name="input"></result>
+            <result name="input">/pages/staff/listStaff.jsp</result>
         </action>
 
     </package>
     <package name="getDeptList_Staff" extends="json-default">
         <action name="getDeptList_Staff" class="deptAction" method="getDept">
             <result name="success">/pages/staff/addStaff.jsp</result>
-            <result name="input"></result>
+            <result name="input">/pages/staff/listStaff.jsp</result>
         </action>
         <action name="passStaff" class="staffAction" method="getDept">
             <result name="success">/pages/staff/editStaff.jsp</result>
-
+        </action>
+    </package>
+    <package name="query" extends="json-default">
+        <action name="queryStaff" class="deptAction" method="queryStaff">
+            <result name="success" type="json">
+                <param name="root">staffList</param>
+                <param name="excludeProperties">\[\d\]\.department\.posts,
+                    \[\d\]\.department\.staffs,
+                    \[\d\]\.post\.staffs
+                    ,\[\d\]\.post\.department</param>
+            </result>
         </action>
     </package>
 

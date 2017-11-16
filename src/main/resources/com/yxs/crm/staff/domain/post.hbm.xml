@@ -8,7 +8,7 @@
             <generator class="native"/>
         </id>
         <property name="postName"/>
-        <set name="staffs" table="T_STAFF" cascade="save-update" inverse="true">
+        <set name="staffs" table="T_STAFF" cascade="save-update" inverse="true" lazy="false">
             <key column="POST_ID"/>
             <one-to-many class="Staff"/>
         </set>

@@ -4,6 +4,7 @@ import com.yxs.crm.base.BaseAction;
 import com.yxs.crm.department.service.DeptService;
 import com.yxs.crm.staff.domain.Department;
 import com.yxs.crm.staff.domain.Post;
+import com.yxs.crm.staff.domain.Staff;
 
 import java.util.List;
 
@@ -14,6 +15,9 @@ public class DeptAction extends BaseAction<Department, DeptService> {
 
     private List<Department> departments;
     private List<Post> postList;
+    private List<Staff> staffList;
+    private Post post;
+    private Staff staff;
 
     public String addDept() {
         Department department = service.addDept(getModel());
@@ -33,6 +37,18 @@ public class DeptAction extends BaseAction<Department, DeptService> {
         return SUCCESS;
     }
 
+    public String getStaffByDeptId(){
+        staffList = service.getStaffByDeptId(getModel());
+        return SUCCESS;
+    }
+    public String queryStaff(){
+        staffList = service.queryStaff(getModel(),getPost(),getStaff());
+        return SUCCESS;
+    }
+
+
+
+
     public List<Department> getDepartments() {
         return departments;
     }
@@ -47,5 +63,29 @@ public class DeptAction extends BaseAction<Department, DeptService> {
 
     public void setPostList(List<Post> postList) {
         this.postList = postList;
+    }
+
+    public List<Staff> getStaffList() {
+        return staffList;
+    }
+
+    public void setStaffList(List<Staff> staffList) {
+        this.staffList = staffList;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
+
+    public Staff getStaff() {
+        return staff;
+    }
+
+    public void setStaff(Staff staff) {
+        this.staff = staff;
     }
 }

@@ -20,16 +20,16 @@ function change(value) {
 
             json = eval('(' + this.responseText + ')');
             //获取服务器的标签
-            serverSelect = document.getElementById("posts");
+            postSelect = document.getElementById("posts");
             //获取option标签
-            optionEle = serverSelect.getElementsByTagName("option")
+            optionEle = postSelect.getElementsByTagName("option")
             //获取option数量
             length = optionEle.length;
             //使用循环清空所有的option标签
             for (var i = 0; i < length; i++) {
-                serverSelect.removeChild(optionEle[0]);
+                postSelect.removeChild(optionEle[0]);
             }
-            serverSelect.innerHTML = "<option value = '-1'>--请选择--</option>";
+            postSelect.innerHTML = "<option value = '-1'>--请选择--</option>";
             //将json数据插入到option中
             for (var i = 0; i < json.length; i++) {
                 //创建一个option标签
@@ -41,7 +41,7 @@ function change(value) {
                 //把文本信息添加到option标签中
                 option.appendChild(text);
                 //把option标签添加到servers的select中
-                serverSelect.appendChild(option);
+                postSelect.appendChild(option);
             }
         }
     });

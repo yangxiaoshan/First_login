@@ -7,19 +7,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>无标题文档</title>
     <link href="${pageContext.request.contextPath}/css/sys.css" type="text/css" rel="stylesheet"/>
-    <script>
-        function onDeptSelected(value) {
-            var data = new FormData();
-            data.append("deptID", value);
-
-            var xhr = new XMLHttpRequest();
-            xhr.withCredentials = true;
-
-            xhr.open("POST", "http://localhost:8080/getPosts");
-
-            xhr.send(data);
-        }
-    </script>
 </head>
 
 <body class="emp_body">

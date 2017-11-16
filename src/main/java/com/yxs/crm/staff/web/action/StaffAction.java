@@ -32,6 +32,7 @@ public class StaffAction extends BaseAction<Staff,StaffService>{
     @SkipValidation
     public String getStaff(){
         staffs = service.getStaff();
+        deptList = service.getDept();
         return SUCCESS;
     }
 
@@ -45,7 +46,6 @@ public class StaffAction extends BaseAction<Staff,StaffService>{
     @SkipValidation
     public String getDept(){
         deptList = service.getDept();
-        deptList.forEach(System.out::println);
         postList = deptService.getPostByDeptId(getModel().getPost().getDepartment());
         return SUCCESS;
     }
