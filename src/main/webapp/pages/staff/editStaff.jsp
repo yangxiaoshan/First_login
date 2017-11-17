@@ -83,25 +83,25 @@
     <table width="88%" border="0" class="emp_table" style="width:80%;">
         <tr>
             <td>登录名：</td>
-            <td><input type="text" name="loginName" value="" /> </td>
+            <td><input type="text" name="loginName" value="${loginName}" /> </td>
             <td>密码：</td>
-            <td><input type="password" name="loginPwd" value=""/> </td>
+            <td><input type="password" name="loginPwd" value="${loginPwd}"/> </td>
         </tr>
         <tr>
             <td>姓名：</td>
-            <td><input type="text" name="staffName" value="" id="staffAction_add_staffName"/> </td>
+            <td><input type="text" name="staffName" value="${staffName}" id="staffAction_add_staffName"/> </td>
             <td>性别：</td>
-            <td><input type="radio" name="gender"  value="男"/>男
-                <input type="radio" name="gender"  value="女"/>女
+            <td><input type="radio" name="gender"  value="${gender}"/>男
+                <input type="radio" name="gender"  value="${gender}"/>女
             </td>
         </tr>
         <tr>
             <td width="10%">所属部门：</td>
             <td width="20%">
 
-                <select id="deptID" name="model.department.deptID" onchange="onDeptSelected(value)">
+                <select id="deptID" name="model.post.department.deptID" onchange="onDeptSelected(value)">
                     <s:iterator value="deptList" var="dep">
-                        <s:if test="#dep.deptID==model.post.department.deptID}">
+                        <s:if test="#dep.deptID==model.post.department.deptID">
                             <option value="${dep.deptID}" selected="selected">${dep.deptName}</option>
                         </s:if>
                         <s:else>
@@ -128,7 +128,7 @@
         <tr>
             <td width="10%">入职时间：</td>
             <td width="20%">
-                <input type="text" name="onDutyDate" value="" readonly="readonly"  onfocus="c.showMoreDay=true; c.show(this);" />
+                <input type="text" name="onDutyDate" value="${onDutyDate}" readonly="readonly"  onfocus="c.showMoreDay=true; c.show(this);" />
             </td>
             <td width="8%"></td>
             <td width="62%"></td>
