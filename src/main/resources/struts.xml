@@ -8,12 +8,13 @@
 
     <constant name="struts.devMode" value="true"/>
 
+
     <package name="base" extends="json-default">
 
         <interceptors>
 
             <interceptor name="loginInterceptor" class="com.yxs.crm.staff.web.interceptor.LoginInterceptor">
-                <param name="excludeMethods">login,getStaff,addStaff</param>
+                <param name="excludeMethods">login,reLogin</param>
             </interceptor>
 
             <interceptor-stack name="crmInterceptorStack">
@@ -24,22 +25,25 @@
         </interceptors>
 
         <default-interceptor-ref name="crmInterceptorStack"/>
-
+        <global-results>
+            <result name="warning">/pages/login.jsp</result>
+        </global-results>
     </package>
 
 
 
 
-    <package name="department" extends="json-default">
+    <package name="department" extends="base">
         <action name="addDept" class="deptAction" method="addDept">
             <result name="success" type="redirectAction">
                 <param name="actionName">getDept</param>
             </result>
-            <result name="input"></result>
+            <result name="input">/pages/department/addOrEditDepartment.jsp</result>
         </action>
 
         <action name="getDept" class="deptAction" method="getDept">
             <result name="success">/pages/department/listDepartment.jsp</result>
+            <result name="input" type="redirectAction">addDept</result>
         </action>
 
         <action name="pass" class="deptAction">
@@ -48,17 +52,16 @@
     </package>
 
 
-    <package name="post" extends="json-default">
+    <package name="post" extends="base">
         <action name="addPost" class="postAction" method="addPost">
             <result name="success" type="redirectAction">
                 <param name="actionName">getPost</param>
             </result>
-            <result name="input"></result>
+            <result name="input">/pages/post/addOrEditPost.jsp</result>
         </action>
 
         <action name="getPost" class="postAction" method="getPost">
             <result name="success">/pages/post/listPost.jsp</result>
-            <result name="input"></result>
         </action>
 
         <action name="getDeptList" class="postAction" method="getDeptList">
@@ -82,15 +85,20 @@
         </action>
         <action name="getStaff" class="staffAction" method="getStaff">
             <result name="success">/pages/staff/listStaff.jsp</result>
-            <result name="input">/pages/login.jsp</result>
         </action>
         <action name="addStaff" class="staffAction" method="addStaff">
             <result name="success" type="redirectAction">getStaff</result>
-            <result name="input">/pages/staff/listStaff.jsp</result>
+            <result name="input" type="redirectAction">getDeptList_Staff</result>
         </action>
-
+        <action name="reLogin" class="staffAction" method="reLogin">
+            <result name="success">/pages/login.jsp</result>
+        </action>
+        <action name="editPassword" class="staffAction" method="editPassword">
+            <result name="success" type="redirect">/pages/login.jsp</result>
+            <result name="input">/pages/staff/updPwd.jsp</result>
+        </action>
     </package>
-    <package name="getDeptList_Staff" extends="json-default">
+    <package name="getDeptList_Staff" extends="base">
         <action name="getDeptList_Staff" class="deptAction" method="getDept">
             <result name="success">/pages/staff/addStaff.jsp</result>
             <result name="input">/pages/staff/listStaff.jsp</result>
@@ -98,15 +106,24 @@
         <action name="passStaff" class="staffAction" method="getDept">
             <result name="success">/pages/staff/editStaff.jsp</result>
         </action>
-    </package>
-    <package name="query" extends="json-default">
-        <action name="queryStaff" class="deptAction" method="queryStaff">
+        <action name="queryStaff" class="staffAction" method="queryStaff">
             <result name="success" type="json">
                 <param name="root">staffList</param>
-                <param name="excludeProperties">\[\d\]\.department\.posts,
-                    \[\d\]\.department\.staffs,
+                <param name="excludeProperties">
+                    \[\d\]\.post\.dept,
+                    \[\d\]\.dept\.posts,
+                    \[\d\]\.dept\.staffs,
                     \[\d\]\.post\.staffs
-                    ,\[\d\]\.post\.department</param>
+                </param>
+                <!--<param name="includeProperties">-->
+                    <!--\[\d\]\.staffName,-->
+                    <!--\[\d\]\.gender,-->
+                    <!--\[\d\]\.post\.postName,-->
+                    <!--\[\d\]\.post\.department\.deptName,-->
+                    <!--\[\d\]\.onDutyDate,-->
+                    <!--\[\d\]\.staffID,-->
+                    <!--\[\d\]\.deptID-->
+                <!--</param>-->
             </result>
         </action>
     </package>
